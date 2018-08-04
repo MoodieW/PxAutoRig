@@ -22,6 +22,7 @@ class PxAutoRigUI(QtWidgets.QDialog):
         self.Ar = AR.PxAutoRig()
         self.buildUI()
         self.populateUI()
+        self.setWindowFlags(QtCore.Qt.WindowStaysOnTopHint)
 
     def buildUI(self):
         layout = QtWidgets.QGridLayout(self)
