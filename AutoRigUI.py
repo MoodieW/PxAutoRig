@@ -86,7 +86,11 @@ class PxAutoRigUI(QtWidgets.QDialog):
 
 def showUI():
     ui = PxAutoRigUI()
-    ui.show()
+    if ui:
+        ui.close()
+        ui.show()
+    else:
+        ui.show()
     return ui
 
 
