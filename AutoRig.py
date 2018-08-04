@@ -470,7 +470,7 @@ class PxAutoRig:
         self.lArmIkChain ,lIkHandle  = Ut.createFkIkChain(self.lArmChain[1:4], grpName = 'L_IK_Arm',  delet =True)
         self.rArmFkChain             = Ut.createFkIkChain(self.rArmChain[1:4], grpName = 'R_FK_Arm',  delet =True, IK = False)
         self.rArmIkChain ,rIkHandle  = Ut.createFkIkChain(self.rArmChain[1:4], grpName = 'R_IK_Arm',  delet =True)
-
+        hide(self.rArmFkChain, self.lArmFkChain, self.rArmIkChain, self.lArmIkChain)
         lFkArmGrp = Ut.groupHeiarchy(name = 'L_FK_Arm_TFM', target = self.lArmChain[0], deleteConstraint = False, children = self.lArmFkChain[0])
         lIkArmGrp = Ut.groupHeiarchy(name = 'L_IK_Arm_TFM', target = self.lArmChain[0], deleteConstraint = False, children = self.lArmIkChain[0])
         rFkArmGrp = Ut.groupHeiarchy(name = 'R_FK_Arm_TFM', target = self.rArmChain[0], deleteConstraint = False, children = self.rArmFkChain[0])
@@ -553,7 +553,7 @@ class PxAutoRig:
         self.rLegIkChain, rIkHandle = Ut.createFkIkChain(self.rLegChain, grpName = 'R_IK_Leg',  delet =False)
         self.rScIks                 = Ut.createSingleChainIks(self.rLegIkChain[-3:])
         self.lScIks                 = Ut.createSingleChainIks(self.lLegIkChain[-3:])
-      
+        hide(self.rLegFkChain, self.lLegFkChain, self.rLegIkChain, self.lLegIkChain)
         self.legIkHandles = [lIkHandle,rIkHandle]
         ikCtrls  = Ut.createIkHandleCtrl(type = 'sphere' ,ikHandles=self.legIkHandles,r = 1.3)
        
